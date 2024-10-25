@@ -1,0 +1,17 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "cicd-demo-api",
+      "image": "public.ecr.aws/e7q2r5v1/cicd-demo:0.0.1",
+      "portMappings": [
+        {
+          "hostPort": 5000,
+          "containerPort": 8080
+        }
+      ],
+      "essential": true,
+      "memoryReservation": 128
+    }
+  ]
+}

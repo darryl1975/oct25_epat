@@ -1,0 +1,24 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+  pre_build:
+    commands:
+    - echo In the pre_build phase...
+  build:
+    commands:
+    - echo Build started on `date`
+    - mvn install
+  post_build:
+    commands:
+    - echo Build completed on `date`
+    - mvn package
+    # - mv target/cicd-demo-0.0.1-SNAPSHOT.jar cicd-demo-0.0.1-SNAPSHOT.jar
+artifacts:
+  files:
+  - target/cicd-demo-0.0.1-SNAPSHOT.jar
+  - scripts/*
+  - .ebextensions/**/*
+  - appspec.yml
+  discard-paths: yes
