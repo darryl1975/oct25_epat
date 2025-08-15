@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cicd-demo-app
+spec:
+  selector:
+    app: cicd-demo-app
+  ports:
+    - protocol: "TCP"
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cicd-demo-app
+spec:
+  selector:
+    matchLabels:
+      app: cicd-demo-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cicd-demo-app
+    spec:
+      containers:
+        - name: cicd-demo-app
+          image: darryl1975/cicd-demo-app:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
