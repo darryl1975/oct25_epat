@@ -37,7 +37,7 @@ EXPOSE 8080
 
 # Run the Spring Boot application when the container starts
 # CMD ["java", "-jar", "cicd-demo-0.0.1-SNAPSHOT.jar"]
-ENTRYPOINT ["java", "-jar", "target/cicd-demo-0.0.1-SNAPSHOT.war"]
+ENTRYPOINT ["java", "-jar", "target/cicd-demo-0.0.1-SNAPSHOT.jar"]
 
 # added on 31st Oct
 # ENTRYPOINT [ "sh", "-c", "java -Dspring.profiles.active=prod -jar /usr/local/tomcat/webapps/cicd-demo-0.0.1-SNAPSHOT.war" ]
